@@ -1,0 +1,99 @@
+\documentclass[11pt, a4paper]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry} % Sets 1-inch margins
+\usepackage{amsmath, amssymb, amsthm} % For math symbols and environments
+\usepackage{hyperref} % Adds clickable links to the Table of Contents
+\usepackage{xcolor} % For custom colors
+\usepackage{tcolorbox} % For beautiful note/definition boxes
+\usepackage{graphicx} % For inserting images
+\usepackage{booktabs} % For professional-looking tables
+
+% --- Hyperref Setup ---
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={Course Notes},
+}
+
+% --- Custom Environments ---
+% A nice blue box for definitions or key concepts
+\newtcolorbox{conceptbox}[1]{
+	colback=blue!5!white,
+	colframe=blue!75!black,
+	fonttitle=\bfseries,
+	title=#1,
+	arc=4mm % Rounded corners
+}
+
+% --- Document Information ---
+\title{\textbf{Course Title: Name of the Subject}}
+\author{Your Name}
+\date{\today} % Automatically inserts current date
+
+% --- Main Body ---
+\begin{document}
+	
+	\maketitle
+	\thispagestyle{empty} % Removes page number from the title page
+	\newpage
+	
+	% --- Table of Contents ---
+	\tableofcontents
+	\newpage
+	
+	% --- Lecture 1 ---
+	\section{Lecture 1: Introduction to the Course}
+	\subsection{Overview and Objectives}
+	This is where you can start typing your general lecture notes. Use paragraphs to separate ideas. You can emphasize text using \textbf{bold text} or \textit{italics}.
+	
+	\subsection{Core Concepts}
+	Here is an example of a bulleted list for quick facts:
+	\begin{itemize}
+		\item First key takeaway from the lecture.
+		\item Second important point you need to remember.
+		\item A sub-point looks like this:
+		\begin{itemize}
+			\item Detail regarding the second point.
+		\end{itemize}
+	\end{itemize}
+	
+	\begin{conceptbox}{Important Definition}
+		This is a custom callout box. Use it to highlight formulas, definitions, or critical exam topics so they stand out when you review.
+	\end{conceptbox}
+	
+	
+	% --- Lecture 2 ---
+	\section{Lecture 2: Advanced Topics}
+	\subsection{Mathematical Formulations}
+	If your course involves equations, LaTeX handles them beautifully. Here is an inline equation: $E = mc^2$. 
+	
+	If you want a standalone, numbered equation, use the equation environment:
+	\begin{equation}
+		f(x) = \int_{-\infty}^{\infty} \hat{f}(\xi)\,e^{2 \pi i \xi x}\,d\xi
+	\end{equation}
+	
+	\subsection{Summary Table}
+	You can also organize data using tables:
+	\begin{center}
+		\begin{tabular}{lrc}
+			\toprule
+			\textbf{Topic} & \textbf{Difficulty} & \textbf{Reviewed?} \\
+			\midrule
+			Lecture 1 & Easy & Yes \\
+			Lecture 2 & Medium & No \\
+			Lecture 3 & Hard & No \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+	
+	
+	% --- Appendix / Resources ---
+	\newpage
+	\section{Appendix: Additional Resources}
+	Any extra links, reading lists, or formula sheets can go right here at the end of your document.
+	
+\end{document}

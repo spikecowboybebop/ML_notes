@@ -1,0 +1,13 @@
+# LaTeX temporary files
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.blg
+*.bbl
+
+# Optional: Uncomment the line below if you don't want to upload the final PDF
+*.pdf
