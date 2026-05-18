@@ -30,9 +30,9 @@
 }
 
 % --- Document Information ---
-\title{\textbf{Course Title: Name of the Subject}}
-\author{Your Name}
-\date{\today} % Automatically inserts current date
+\title{\textbf{Mathematics for Machine Learning}}
+\author{Md Mehrab Hossain Khandoker}
+\date{\today}
 
 % --- Main Body ---
 \begin{document}
@@ -46,11 +46,19 @@
 	\newpage
 	
 	% --- Lecture 1 ---
-	\section{Lecture 1: Introduction to the Course}
-	\subsection{Overview and Objectives}
-	This is where you can start typing your general lecture notes. Use paragraphs to separate ideas. You can emphasize text using \textbf{bold text} or \textit{italics}.
-	
-	\subsection{Core Concepts}
+	\section{Vectors, Vector Spaces and Vector Subspaces}
+	\subsection{Vectors}
+	The primitive idea of a vector is that, it is a quantity with magnitude and direction. But the abstract idea of a vector is that, it can be thought of as an ordered n-tuple. The way we interpret that, can be based on different applications of that vector. Suppose, we have a 5-component vector like, \[
+	u = \begin{pmatrix}
+		u_1 \\
+		u_2 \\
+		u_3 \\
+		u_4 \\
+		u_5
+	\end{pmatrix}
+	\]
+	where each of the five components represent a health parameter of a patient. E.g. blood pressure, pulse rate etc. This idea is strictly tied to the application of the vector. In order to define the vector mathematically, we need an abstract concept of \textbf{`Field'}, that will lead us to the \textbf{`Vectors'}.
+	\subsection{Field $\mathbb{F}$}
 	Here is an example of a bulleted list for quick facts:
 	\begin{itemize}
 		\item First key takeaway from the lecture.
@@ -64,36 +72,5 @@
 	\begin{conceptbox}{Important Definition}
 		This is a custom callout box. Use it to highlight formulas, definitions, or critical exam topics so they stand out when you review.
 	\end{conceptbox}
-	
-	
-	% --- Lecture 2 ---
-	\section{Lecture 2: Advanced Topics}
-	\subsection{Mathematical Formulations}
-	If your course involves equations, LaTeX handles them beautifully. Here is an inline equation: $E = mc^2$. 
-	
-	If you want a standalone, numbered equation, use the equation environment:
-	\begin{equation}
-		f(x) = \int_{-\infty}^{\infty} \hat{f}(\xi)\,e^{2 \pi i \xi x}\,d\xi
-	\end{equation}
-	
-	\subsection{Summary Table}
-	You can also organize data using tables:
-	\begin{center}
-		\begin{tabular}{lrc}
-			\toprule
-			\textbf{Topic} & \textbf{Difficulty} & \textbf{Reviewed?} \\
-			\midrule
-			Lecture 1 & Easy & Yes \\
-			Lecture 2 & Medium & No \\
-			Lecture 3 & Hard & No \\
-			\bottomrule
-		\end{tabular}
-	\end{center}
-	
-	
-	% --- Appendix / Resources ---
-	\newpage
-	\section{Appendix: Additional Resources}
-	Any extra links, reading lists, or formula sheets can go right here at the end of your document.
 	
 \end{document}
