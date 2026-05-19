@@ -193,6 +193,79 @@
 	\end{enumerate}
 	Since the sixth property (existence of a multiplicative inverse for all non-zero elements) is violated, $\mathbb{Z}_6$ is \textbf{not} a Field.\newline
 	
-	\noindent As we can see, even though $\mathbb{Z}_5$ is a field, but $\mathbb{Z}_6$ is not. In order to generalize this for $\mathbb{Z}_n$, it is only a field, when $n$ is a prime number.
+	\noindent As we can see, even though $\mathbb{Z}_5$ is a field, but $\mathbb{Z}_6$ is not. In order to generalize this for $\mathbb{Z}_n$, it is only a field, when $n$ is a prime number.\newline
+	
+	\noindent \textbf{Explanation:} Suppose, we have a set $\mathbb{Z}_n$, where $n$ could be a composite number or prime number. $\mathbb{Z}_n = \{0, 1, 2, ..., n-1\}$. If $n$ were to be a composite number, it should have factors let's say $(a, b)$ that should also be present in $\mathbb{Z}_n$. For example, if we see the Multiplication Modulo 6 Table for $\mathbb{Z}_6$, $(2, 3)$ both are present in $\mathbb{Z}_6$, as they are less than $6$, and \[
+	2 \cdot 3 \equiv 0 \pmod{n}
+	\]
+	Because $n$ is composite, it has factors $a$ and $b$ sitting right there inside the set. Because $a \cdot b = n \equiv 0$, multiplying by $a$ or $b$ creates an early short-circuit. The numbers collapse into $0$, causing the multiplication results to get trapped in a tight, repetitive loop. They can never escape the loop to hit $1$. No $1$ means no inverse, which means not a field. \newline 
+	\newline If $n$ were to be a prime number, no two numbers in the set can multiply to equal $n$ (or any multiple of $n$). Because they can never hit $0$ early, the multiplication is forced to fully iterate through a complete, non-repeating cycle of all $n-1$ elements. By the laws of logic, if you have $n-1$ unique numbers iterating through $n-1$ available slots, it is guaranteed to hit $1$ exactly once. Hitting $1$ means an inverse exists for every element, which means it is a field.
+	
+	\subsection{Vector Space, $V$}
+	Let $\mathbb{F}$ be any field. Let $V$ be a non-empty collection of objects called the `vectors'. $V$ is a vector space over $\mathbb{F}$ if rules for adding two vectors and scalar multiplication exists such that $V$ is closed under vector addition and scalar multiplication. 
+
+	\begin{itemize}
+		\item \textbf{Vector Addition ($+$):} Takes two vectors $u, v \in V$ and yields a vector $u + v \in V$.
+		\item \textbf{Scalar Multiplication ($\cdot$):} Takes a scalar $c \in \mathbb{F}$ and a vector $v \in V$ and yields a vector $c \cdot v \in V$.
+	\end{itemize}
+	Furthermore, these operations must satisfy the following eight axioms for all vectors $u, v, w \in V$ and all scalars $c, d \in \mathbb{F}$:
+	
+	\subsection*{I. Axioms for Vector Addition}
+	\begin{enumerate}
+		\item \textbf{Associativity of Addition:} 
+		\[ u + (v + w) = (u + v) + w \]
+		
+		\item \textbf{Commutativity of Addition:} 
+		\[ u + v = v + u \]
+		
+		\item \textbf{Identity Element of Addition:} There exists an element $0 \in V$ (called the zero vector) such that:
+		\[ v + 0 = v \]
+		
+		\item \textbf{Inverse Elements of Addition:} For every $v \in V$, there exists an element $-v \in V$ (called the additive inverse) such that:
+		\[ v + (-v) = 0 \]
+	\end{enumerate}
+	
+	\subsection*{II. Axioms for Scalar Multiplication}
+	\begin{enumerate}
+		\setcounter{enumi}{4} % Continues numbering from 5
+		\item \textbf{Compatibility (Associativity) of Scalar Multiplication:} 
+		\[ c \cdot (d \cdot v) = (c \cdot d) \cdot v \]
+		
+		\item \textbf{Identity Element of Scalar Multiplication:} If $1$ is the multiplicative identity of the field $\mathbb{F}$, then:
+		\[ 1 \cdot v = v \]
+		
+		\item \textbf{Distributivity of Scalar Multiplication over Vector Addition:} 
+		\[ c \cdot (u + v) = c \cdot u + c \cdot v \]
+		
+		\item \textbf{Distributivity of Scalar Multiplication over Field Addition:} 
+		\[ (c + d) \cdot v = c \cdot v + d \cdot v \]
+	\end{enumerate}
+	
+	\subsection*{Construction of Vectors: The Space $\mathbb{R}^n$}
+	The most common way to construct a vector space is by taking elements from a known field, such as the Real Numbers ($\mathbb{R}$), and grouping them into ordered sequences. If we are interested in constructing a vector with $n$ components, we take the Cartesian product of the field with itself $n$ times:
+	\[
+	\underbrace{\mathbb{R} \times \mathbb{R} \times \dots \times \mathbb{R}}_{n \text{ times}} = \mathbb{R}^n
+	\]
+	
+	An element (vector) $v$ in this space $\mathbb{R}^n$ is defined as an ordered $n$-tuple of real numbers:
+	\[
+	v = (x_1, x_2, \dots, x_n) \quad \text{where } x_i \in \mathbb{R} \text{ for all } 1 \le i \le n
+	\]
+	\vspace{-1em} % Pulls the following heading up slightly to clear the page limit
+	
+	\subsection*{Geometric Interpretation}\nopagebreak
+	\noindent Depending on the value of $n$, this construction allows us to define positions and directions in various physical dimensions:\nopagebreak
+	\begin{itemize}
+		\setlength{\itemsep}{0pt} % Minimizes vertical spacing between bullet items
+		\item \textbf{$\mathbb{R}^1 = \mathbb{R}$:} Represents a single scalar value, geometrically visualized as a point on a \textbf{1D continuous number line}.
+		\newpage % Explicitly force the break HERE to push the remaining items to the next page
+		\item \textbf{$\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$:} Represents ordered pairs $(x, y)$, visualized as an arrow pointing to a coordinate on a \textbf{2D Cartesian plane}.
+		\item \textbf{$\mathbb{R} \times \mathbb{R} \times \mathbb{R} = \mathbb{R}^3$:} Represents ordered triplets $(x, y, z)$, visualized as an arrow in a \textbf{3D spatial coordinate system}.
+	\end{itemize}
+	
+	\noindent In this framework, the operations of \textbf{Vector Addition} and \textbf{Scalar Multiplication} are performed \textit{component-wise}:
+	\[
+	(x_1, x_2, \dots, x_n) + (y_1, y_2, \dots, y_n) = (x_1 + y_1, x_2 + y_2, \dots, x_n + y_n)
+	\]
 	
 \end{document}
