@@ -63,12 +63,136 @@
 	\begin{enumerate}
 		\item There exists $0 \in \mathbb{F}$ such that for any $a \in \mathbb{F}$, $a + 0 = 0 + a = a$. $0$ is the Additive Identity element here.
 		\item For any two elements $a,b \in \mathbb{F}$, $a + b \in \mathbb{F}$.
-		\item There exists for every element $a \in \mathbb{F}$, the additive inverse $(-a) \in \mathbb{F}$, such that $a + (-a) = 0$.
+		\item There exists for every element $a \in \mathbb{F}$, the Additive Inverse $(-a) \in \mathbb{F}$, such that $a + (-a) = 0$.
 		\item There exists $1 \in \mathbb{F}$ such that for any $a \in \mathbb{F}$, $a \cdot 1 = 1 \cdot a = a$. $1$ is the Multiplicative Identity element here.
 		\item For any two elements $a,b \in \mathbb{F}$, $a \cdot b \in \mathbb{F}$.
-		\item There exists for every element $a \in \mathbb{F}$, the Multiplicative inverse $a^{-1} \in \mathbb{F}$, such that $a \cdot a^{-1} = a^{-1} \cdot a = 1$.
+		\item There exists for every non-zero element $a \in \mathbb{F}$, the Multiplicative Inverse $a^{-1} \in \mathbb{F}$, such that $a \cdot a^{-1} = a^{-1} \cdot a = 1$.
 	\end{enumerate}
+	If these six properties are obeyed by a set of elements, then that set is called a Field, especially defined by the two operations: Field Addition and Field Multiplication.\newline
 	
+	\noindent \textbf{Example 1:} Let us consider the set of Real Numbers $\mathbb{R}$.
 	
+	\begin{enumerate}
+		\item $0 \in \mathbb{R}$ such that $1 \in \mathbb{R}$, $0 + 1 = 1 + 0 = 1$. 
+		\item $(2,3) \in \mathbb{R}$ such that $2 + 3 = 5 \in \mathbb{R}$.
+		\item $(2, -2) \in \mathbb{R}$ such that $ 2 + (-2) = 0$
+		\item $1 \in \mathbb{R}$ such that $2 \in \mathbb{R}, 2 \cdot 1 = 1 \cdot 2 = 2$
+		\item $(2,3) \in \mathbb{R}$ such that $2 \cdot 3 = 6 \in \mathbb{R}$.
+		\item $(2, \frac{1}{2}) \in \mathbb{R}$ such that $ 2 \cdot \frac{1}{2} = 1$
+	\end{enumerate}
+	Since, six of the properties are being satisfied by the set of Real Numbers $\mathbb{R}$, hence $\mathbb{R}$ is a Field.
+	
+	\newpage
+	\noindent \textbf{Example 2:} Let us consider the set of Integers $\mathbb{Z}$.
+	
+	\begin{enumerate}
+		\item $0 \in \mathbb{Z}$ such that $1 \in \mathbb{Z}$, $0 + 1 = 1 + 0 = 1$. 
+		\item $(2,3) \in \mathbb{Z}$ such that $2 + 3 = 5 \in \mathbb{Z}$.
+		\item $(2, -2) \in \mathbb{Z}$ such that $ 2 + (-2) = 0$
+		\item $1 \in \mathbb{Z}$ such that $2 \in \mathbb{Z}, 2 \cdot 1 = 1 \cdot 2 = 2$
+		\item $(2,3) \in \mathbb{Z}$ such that $2 \cdot 3 = 6 \in \mathbb{Z}$.
+		\item For $2 \in \mathbb{Z}$, the multiplicative inverse is $\frac{1}{2}$, but $\frac{1}{2} \notin \mathbb{Z}$.
+	\end{enumerate}
+	Since the sixth property (the existence of a multiplicative inverse) is violated by the set of Integers $\mathbb{Z}$, hence $\mathbb{Z}$ is \textbf{not} a Field.
+	
+	\vspace{0.5em}
+	
+	\noindent \textbf{Example 3:} Let us consider the set of Integers modulo 5, denoted as $\mathbb{Z}_5 = \{0, 1, 2, 3, 4\}$, where all operations are performed modulo 5.
+	
+	\vspace{1em}
+	\noindent To easily visualize all possible combinations for these operations in $\mathbb{Z}_5$, we can construct addition and multiplication tables:
+	
+	\begin{center}
+		% --- Left Table (Addition) ---
+		\begin{minipage}[t]{0.45\textwidth}
+			\centering
+			\textbf{Addition Modulo 5 ($+$)} \\[0.5em]
+			\begin{tabular}{c|ccccc}
+				$+$ & 0 & 1 & 2 & 3 & 4 \\ \hline
+				0   & 0 & 1 & 2 & 3 & 4 \\
+				1   & 1 & 2 & 3 & 4 & 0 \\
+				2   & 2 & 3 & 4 & 0 & 1 \\
+				3   & 3 & 4 & 0 & 1 & 2 \\
+				4   & 4 & 0 & 1 & 2 & 3 \\
+			\end{tabular}
+		\end{minipage}
+		\hfill % This pushes the second table smoothly to the right side
+		% --- Right Table (Multiplication) ---
+		\begin{minipage}[t]{0.45\textwidth}
+			\centering
+			\textbf{Multiplication Modulo 5 ($\cdot$)} \\[0.5em]
+			\begin{tabular}{c|ccccc}
+				$\cdot$ & 0 & 1 & 2 & 3 & 4 \\ \hline
+				0       & 0 & 0 & 0 & 0 & 0 \\
+				1       & 0 & 1 & 2 & 3 & 4 \\
+				2       & 0 & 2 & 4 & 1 & 3 \\
+				3       & 0 & 3 & 1 & 4 & 2 \\
+				4       & 0 & 4 & 3 & 2 & 1 \\
+			\end{tabular}
+		\end{minipage}
+	\end{center}
+	
+	\begin{enumerate}
+		\item $0 \in \mathbb{Z}_5$ such that $1 \in \mathbb{Z}_5$, $0 + 1 = 1 + 0 = 1 \pmod 5$. 
+		\item $(2,3) \in \mathbb{Z}_5$ such that $2 + 3 = 5 \equiv 0 \in \mathbb{Z}_5$.
+		\item $(2, 3) \in \mathbb{Z}_5$ such that $2 + 3 = 5 \equiv 0$, meaning $3$ is the additive inverse of $2$ (since $-2 \equiv 3 \pmod 5$).
+		\item $1 \in \mathbb{Z}_5$ such that $2 \in \mathbb{Z}_5, 2 \cdot 1 = 1 \cdot 2 = 2 \pmod 5$.
+		\item $(2,3) \in \mathbb{Z}_5$ such that $2 \cdot 3 = 6 \equiv 1 \in \mathbb{Z}_5$.
+		\item $(2, 3) \in \mathbb{Z}_5$ such that $2 \cdot 3 = 6 \equiv 1$, meaning $3$ is the multiplicative inverse of $2$ (since $2^{-1} \equiv 3 \pmod 5$).
+	\end{enumerate}
+	Since all six properties are perfectly satisfied under modular arithmetic, the finite set $\mathbb{Z}_5$ is a Field (specifically, a finite field).
+	
+	\vspace{0.5em}
+	
+	\noindent \textbf{Example 4:} Let us consider the set of Integers modulo 6, denoted as $\mathbb{Z}_6 = \{0, 1, 2, 3, 4, 5\}$, under modular addition and multiplication.
+	
+	\begin{center}
+		% --- Left Table (Addition Modulo 6) ---
+		\begin{minipage}[t]{0.45\textwidth}
+			\centering
+			\textbf{Addition Modulo 6 ($+$)} \\[0.5em]
+			\begin{tabular}{c|cccccc}
+				$+$ & 0 & 1 & 2 & 3 & 4 & 5 \\ \hline
+				0   & 0 & 1 & 2 & 3 & 4 & 5 \\
+				1   & 1 & 2 & 3 & 4 & 5 & 0 \\
+				2   & 2 & 3 & 4 & 5 & 0 & 1 \\
+				3   & 3 & 4 & 5 & 0 & 1 & 2 \\
+				4   & 4 & 5 & 0 & 1 & 2 & 3 \\
+				5   & 5 & 0 & 1 & 2 & 3 & 4 \\
+			\end{tabular}
+		\end{minipage}
+		\hfill % Pushes the second table smoothly to the right side
+		% --- Right Table (Multiplication Modulo 6) ---
+		\begin{minipage}[t]{0.45\textwidth}
+			\centering
+			\textbf{Multiplication Modulo 6 ($\cdot$)} \\[0.5em]
+			\begin{tabular}{c|cccccc}
+				$\cdot$ & 0 & 1 & 2 & 3 & 4 & 5 \\ \hline
+				0       & 0 & 0 & 0 & 0 & 0 & 0 \\
+				1       & 0 & 1 & 2 & 3 & 4 & 5 \\
+				2       & 0 & 2 & 4 & 0 & 2 & 4 \\
+				3       & 0 & 3 & 0 & 3 & 0 & 3 \\
+				4       & 0 & 4 & 2 & 0 & 4 & 2 \\
+				5       & 0 & 5 & 4 & 3 & 2 & 1 \\
+			\end{tabular}
+		\end{minipage}
+	\end{center}
+	
+	\begin{enumerate}
+		\item $0 \in \mathbb{Z}_6$ such that $1 \in \mathbb{Z}_6$, $0 + 1 = 1 + 0 = 1 \pmod 6$. 
+		\item $(2,5) \in \mathbb{Z}_6$ such that $2 + 5 = 7 \equiv 1 \in \mathbb{Z}_6$.
+		\item $(2, 4) \in \mathbb{Z}_6$ such that $2 + 4 = 6 \equiv 0$, meaning $4$ is the additive inverse of $2$.
+		\item $1 \in \mathbb{Z}_6$ such that $2 \in \mathbb{Z}_6, 2 \cdot 1 = 1 \cdot 2 = 2 \pmod 6$.
+		\item $(2,4) \in \mathbb{Z}_6$ such that $2 \cdot 4 = 8 \equiv 2 \in \mathbb{Z}_6$.
+		\item \textbf{Failure Condition:} Consider the non-zero element $2 \in \mathbb{Z}_6$. If we look at its multiples:
+		\begin{align*}
+			2 \cdot 0 &\equiv 0, \quad 2 \cdot 1 \equiv 2, \quad 2 \cdot 2 \equiv 4 \\
+			2 \cdot 3 &\equiv 0, \quad 2 \cdot 4 \equiv 2, \quad 2 \cdot 5 \equiv 4
+		\end{align*}
+		There is no element $x \in \mathbb{Z}_6$ such that $2 \cdot x \equiv 1$. Therefore, $2$ has no multiplicative inverse ($2^{-1}$ does not exist).
+	\end{enumerate}
+	Since the sixth property (existence of a multiplicative inverse for all non-zero elements) is violated, $\mathbb{Z}_6$ is \textbf{not} a Field.\newline
+	
+	\noindent As we can see, even though $\mathbb{Z}_5$ is a field, but $\mathbb{Z}_6$ is not. In order to generalize this for $\mathbb{Z}_n$, it is only a field, when $n$ is a prime number.
 	
 \end{document}
