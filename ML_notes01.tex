@@ -30,7 +30,8 @@
 }
 
 % --- Document Information ---
-\title{\textbf{Mathematics for Machine Learning}}
+\title{Mathematics For Machine Learning \\
+	\large \textit{Part 01: Linear Algebra}}
 \author{Md Mehrab Hossain Khandoker}
 \date{\today}
 
@@ -267,5 +268,162 @@
 	\[
 	(x_1, x_2, \dots, x_n) + (y_1, y_2, \dots, y_n) = (x_1 + y_1, x_2 + y_2, \dots, x_n + y_n)
 	\]
+	
+	\subsection{Vector Subspaces}
+	A \textbf{vector subspace} is a subset of a larger vector space that satisfies all the requirements to be a vector space in its own right, using the exact same operations of vector addition and scalar multiplication, defined in the larger vector space. \newline 
+	
+	\noindent \textbf{Definition:} Let $V$ be a vector space over a field $\mathbb{F}$, and let $W$ be a subset of $V$ ($W \subseteq V$). $W$ is a \textbf{subspace} of $V$ if and only if it satisfies the following three conditions:
+	
+	\begin{enumerate}
+		\item \textbf{Non-emptiness (Contains the Zero Vector):} The zero vector $0$ of $V$ must be in $W$.
+		\[ 0 \in W \]
+		
+		\item \textbf{Closure Under Vector Addition:} For any two vectors $u, v \in W$, their sum must also be in $W$.
+		\[ \text{If } u, v \in W \implies u + v \in W \]
+		
+		\item \textbf{Closure Under Scalar Multiplication:} For any vector $v \in W$ and any scalar $c \in \mathbb{F}$, their product must also be in $W$.
+		\[ \text{If } v \in W \text{ and } c \in \mathbb{F} \implies c \cdot v \in W \]
+	\end{enumerate}
+	
+	\subsubsection*{Geometric Examples in $\mathbb{R}^3$}
+	To visualize subspaces geometrically within our three-dimensional space ($V = \mathbb{R}^3$):
+	\begin{itemize}
+		\item \textbf{0-Dimensional Subspace:} The single point containing only the zero vector, $W = \{(0,0,0)\}$. This is called the \textit{trivial subspace}.
+		\item \textbf{1-Dimensional Subspace:} Any \textbf{straight line} passing directly through the origin $(0,0,0)$. 
+		\item \textbf{2-Dimensional Subspace:} Any \textbf{flat plane} passing directly through the origin $(0,0,0)$.
+	\end{itemize}
+	\textit{Note: If a line or a plane does not pass through the origin, it fails the first condition ($0 \notin W$) and is therefore NOT a vector subspace!}
+	
+	\subsection{Linear Combination of Vectors}
+	A \textbf{linear combination} is an expression formed by multiplying a set of vectors by scalar constants and adding the results together. It is the fundamental way we move around and construct new coordinates within a vector space.
+	
+	\noindent \textbf{Definition:} Let $V$ be a vector space over a field $\mathbb{F}$. A vector $v \in V$ is said to be a \textbf{linear combination} of the vectors $v_1, v_2, \dots, v_k \in V$ if there exist scalars $c_1, c_2, \dots, c_k \in \mathbb{F}$ such that:
+	\[
+	v = c_1 v_1 + c_2 v_2 + \dots + c_k v_k = \sum_{i=1}^{k} c_i v_i
+	\]
+	The scalars $c_1, c_2, \dots, c_k$ are called the \textbf{coefficients} or \textbf{weights} of the linear combination.
+	
+	\subsection*{Geometric Visualization in $\mathbb{R}^2$}
+	To visualize this geometrically, imagine you are given two non-parallel vectors in a 2D plane, $v_1$ and $v_2$:
+	\begin{itemize}
+		\item Multiplying $v_1$ by a scalar $c_1$ stretches, shrinks, or reverses its direction to create the vector $c_1 v_1$.
+		\item Multiplying $v_2$ by a scalar $c_2$ does the same to create $c_2 v_2$.
+		\item Adding them together ($c_1 v_1 + c_2 v_2$) using the parallelogram rule yields a completely new vector $v$.
+	\end{itemize}
+	
+	
+	
+	\noindent \textbf{Example 1:} Let $v_1 = (1, 2)$ and $v_2 = (3, -1)$ be vectors in $\mathbb{R}^2$. Show that the vector $v = (11, 1)$ is a linear combination of $v_1$ and $v_2$.
+	
+	\noindent \textit{Solution:} We need to find scalars $c_1$ and $c_2$ such that:
+	\[
+	c_1 \begin{pmatrix} 1 \\ 2 \end{pmatrix} + c_2 \begin{pmatrix} 3 \\ -1 \end{pmatrix} = \begin{pmatrix} 11 \\ 1 \end{pmatrix}
+	\]
+	This sets up a system of linear equations:
+	\begin{align*}
+		1c_1 + 3c_2 &= 11 \\
+		2c_1 - 1c_2 &= 1
+	\end{align*}
+	Multiplying the second equation by 3 gives $6c_1 - 3c_2 = 3$. Adding this to the first equation yields:
+	\[
+	7c_1 = 14 \implies c_1 = 2
+	\]
+	Substituting $c_1 = 2$ back into the first equation:
+	\[
+	2 + 3c_2 = 11 \implies 3c_2 = 9 \implies c_2 = 3
+	\]
+	Since we found a valid set of scalars ($c_1 = 2, c_2 = 3$), the vector $v$ is a linear combination of $v_1$ and $v_2$, written as:
+	\[
+	v = 2v_1 + 3v_2
+	\]
+	
+	\subsection*{Average of Vectors}
+	The \textbf{average} (or mean) of a set of vectors is a specific type of linear combination where all vectors are weighted equally, and the sum of the weights equals $1$. 
+	
+	\noindent \textbf{Definition:} Given a set of $k$ vectors $\{v_1, v_2, \dots, v_k\}$ in a vector space $V$, the average vector $\bar{v}$ is defined as:
+	\[
+	\bar{v} = \frac{1}{k}(v_1 + v_2 + \dots + v_k) = \frac{1}{k}\sum_{i=1}^{k} v_i
+	\]
+	
+	\subsection*{Affine Combination of Vectors}
+	An \textbf{affine combination} is a special class of linear combination where the sum of all scalar coefficients is strictly constrained to equal $1$. 
+	
+	\noindent \textbf{Definition:} Let $V$ be a vector space over a field $\mathbb{F}$. A vector $v \in V$ is said to be an \textbf{affine combination} of the vectors $v_1, v_2, \dots, v_k \in V$ if there exist scalars $c_1, c_2, \dots, c_k \in \mathbb{F}$ such that:
+	\[
+	v = c_1 v_1 + c_2 v_2 + \dots + c_k v_k = \sum_{i=1}^{k} c_i v_i
+	\]
+	subject to the strict structural constraint:
+	\[
+	\sum_{i=1}^{k} c_i = 1
+	\]
+	
+	\subsection*{Convex Combination of Vectors}
+	A \textbf{convex combination} is a highly constrained type of affine combination where all scalar coefficients are strictly restricted to be non-negative.
+	
+	\noindent \textbf{Definition:} Let $V$ be a vector space over a field $\mathbb{F}$. A vector $v \in V$ is said to be a \textbf{convex combination} of the vectors $v_1, v_2, \dots, v_k \in V$ if there exist scalars $c_1, c_2, \dots, c_k \in \mathbb{F}$ such that:
+	\[
+	v = c_1 v_1 + c_2 v_2 + \dots + c_k v_k = \sum_{i=1}^{k} c_i v_i
+	\]
+	subject to two simultaneous structural constraints:
+	\[
+	\sum_{i=1}^{k} c_i = 1 \quad \text{and} \quad c_i \ge 0 \quad \text{for all } i \in \{1, 2, \dots, k\}
+	\]
+	
+	\subsection*{Linear Dependence}
+	A set of vectors is considered \textbf{linearly dependent} if at least one vector in the set can be written as a linear combination of the remaining vectors. In other words, the set contains redundant geometric information.
+	
+	\noindent \textbf{Definition:} A set of vectors $\{v_1, v_2, \dots, v_k\}$ in a vector space $V$ is said to be \textbf{linearly dependent} if there exist scalars $c_1, c_2, \dots, c_k \in \mathbb{F}$, \textbf{not all of which are zero}, such that:
+	\[
+	c_1 v_1 + c_2 v_2 + \dots + c_k v_k = 0
+	\]
+	If the only way to satisfy the equation $\sum c_i v_i = 0$ is for every single scalar to be exactly zero ($c_1 = c_2 = \dots = c_k = 0$), then the set is called \textbf{linearly independent}.
+	
+	\subsection*{Geometric Interpretation in $\mathbb{R}^2$ and $\mathbb{R}^3$}
+	Linear dependence has a very clear physical meaning when visualized geometrically:
+	\begin{itemize}
+		\item \textbf{Two Vectors ($k = 2$):} Two vectors $v_1$ and $v_2$ are linearly dependent if and only if they lie along the exact same straight line passing through the origin. They are \textbf{collinear} (one is just a scaled version of the other, $v_2 = c \cdot v_1$).
+		\item \textbf{Three Vectors ($k = 3$):} Three vectors $v_1, v_2,$ and $v_3$ are linearly dependent if they all lie within the exact same flat plane passing through the origin. They are \textbf{coplanar}. Even if $v_1$ and $v_2$ point in different directions, if $v_3$ sits inside their shared plane, it adds no new dimensional depth.
+	\end{itemize}
+	
+	
+	
+	\noindent \textbf{Example:} Determine if the set of vectors $S = \{v_1, v_2, v_3\}$ is linearly dependent in $\mathbb{R}^3$, given:
+	\[
+	v_1 = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}, \quad 
+	v_2 = \begin{pmatrix} 2 \\ 4 \\ 6 \end{pmatrix}, \quad 
+	v_3 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}
+	\]
+	
+	\noindent \textit{Solution:} We examine the relation $c_1 v_1 + c_2 v_2 + c_3 v_3 = 0$:
+	\[
+	c_1 \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} + c_2 \begin{pmatrix} 2 \\ 4 \\ 6 \end{pmatrix} + c_3 \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+	\]
+	By inspection, notice that $v_2$ is exactly double $v_1$. We can choose our weights to be:
+	\[
+	c_1 = 2, \quad c_2 = -1, \quad c_3 = 0
+	\]
+	Testing these scalars in our equation:
+	\[
+	2 \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} - 1 \begin{pmatrix} 2 \\ 4 \\ 6 \end{pmatrix} + 0 \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 2 - 2 + 0 \\ 4 - 4 + 0 \\ 6 - 6 + 0 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+	\]
+	Because we found a combination of scalars that yields the zero vector where \textbf{not all scalars are zero} ($c_1 = 2$ and $c_2 = -1$), the vector set is definitively \textbf{linearly dependent}. We can explicitly show the redundancy by isolating $v_2$:
+	\[
+	v_2 = 2v_1 + 0v_3
+	\]
+	
+	\noindent \textbf{The Zero Vector Rule:} Any set of vectors that contains the zero vector ($0$) is automatically a \textbf{linearly dependent} set.
+	
+	\noindent \textit{Proof:} Let $S = \{0, v_1, v_2, \dots, v_k\}$ be a set of vectors containing the zero vector. To test for linear dependence, we set up the vector equation:
+	\[
+	c_0(0) + c_1 v_1 + c_2 v_2 + \dots + c_k v_k = 0
+	\]
+	We can satisfy this equation by setting the scalar coefficient for the zero vector to any non-zero number (for example, $c_0 = 5$), and setting all other coefficients to zero ($c_1 = c_2 = \dots = c_k = 0$):
+	\[
+	5(0) + 0v_1 + 0v_2 + \dots + 0v_k = 0
+	\]
+	\[
+	0 + 0 + 0 + \dots + 0 = 0
+	\]
+	Because we found a valid combination of scalars that satisfies the equation where \textbf{at least one scalar is non-zero} ($c_0 \neq 0$), the set $S$ is, by definition, linearly dependent.
 	
 \end{document}
